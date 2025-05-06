@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Dzulfiqor - UI/UX Design Partner</title>
+    <style>
+        :root {
+            --primary: #0052cc;
+            --primary-dark: #003d99;
+            --secondary: #ff7a00;
+            --dark: #2d3748;
+            --light: #f8f9fa;
+            --gray: #718096;
+            --success: #38a169;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        header {
+            padding: 24px 0;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .hero {
+            padding: 80px 0;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--dark);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .highlight {
+            color: var(--secondary);
+        }
+        
+        .benefits {
+            padding: 40px 0;
+            background-color: var(--light);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-card h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+        
+        .service-emoji {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+        
+        .services {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        
+        .service-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            padding: 32px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .process {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .process-steps {
+            margin-top: 48px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--gray);
+            z-index: 1;
+        }
+        
+        .process-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            width: 22%;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary);
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        
+        .process-step h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .process-step p {
+            font-size: 14px;
+            color: var(--gray);
+            text-align: center;
+        }
+        
+        .testimonials {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .testimonial-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+        
+        .testimonial-text {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+        }
+        
+        .testimonial-role {
+            color: var(--gray);
+        }
+        
+        .contact {
+            padding: 80px 0;
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            font-size: 36px;
+            margin-bottom: 24px;
+        }
+        
+        .contact p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+        }
+        
+        .contact-cta {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary);
+            padding: 16px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 18px;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        
+        .contact-cta:hover {
+            transform: scale(1.05);
+        }
+        
+        .post-note {
+            font-size: 16px;
+            margin-top: 24px;
+            opacity: 0.8;
+        }
+        
+        footer {
+            padding: 40px 0;
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .process-steps::before {
+                display: none;
+            }
+            
+            .process-step {
+                width: 100%;
+                margin-bottom: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">Muhammad Dzulfiqor</div>
+            <a href="#contact" class="cta-button">Book a Consultation</a>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>UI/UX Design Partner for <span class="highlight">Growth-Focused Founders</span></h1>
+            <p>Empowering founders with strategic design solutions that drive engagement, conversion, and business growth.</p>
+            <a href="#services" class="cta-button">Explore My Services</a>
+        </div>
+    </section>
+    
+    <section class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Partner With Me?</h2>
+                <p>I don't just create designs, I build experiences that drive real business results.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>🚀 Business-Driven Approach</h3>
+                    <p>Your business goals become my mission - I treat every project as my own with a focus on metrics that matter.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>💼 Founder Experience</h3>
+                    <p>3+ years helping 20+ founders worldwide transform their product visions into reality.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>🔄 End-to-End Solutions</h3>
+                    <p>From research to design to developer handoff - I deliver complete product experiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Services</h2>
+                <p>Specialized design solutions for SaaS, Mobile Apps, and E-commerce</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-emoji">📱</div>
+                    <h3>Mobile & Web App Design</h3>
+                    <p>User-centered interfaces for mobile and web applications that delight users and achieve business goals.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-emoji">⚙️</div>
+                    <h3>SaaS Dashboard Design</h3>
+                    <p>Intuitive and powerful dashboards that make complex data accessible and actionable.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-emoji">🛒</div>
+                    <h3>E-Commerce Design</h3>
+                    <p>Conversion-optimized shopping experiences that drive sales and build customer loyalty.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-emoji">🔍</div>
+                    <h3>UX Research & Audits</h3>
+                    <p>Data-driven insights to identify opportunities and solve usability issues.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-emoji">🚀</div>
+                    <h3>Landing Page Design</h3>
+                    <p>High-converting landing pages that effectively communicate your value proposition.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-emoji">💻</div>
+                    <h3>No-Code Development</h3>
+                    <p>Bridging the gap between design and implementation with Webflow and Framer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Design Process</h2>
+                <p>A structured approach that ensures successful outcomes</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery & Research</h3>
+                    <p>Understanding your business goals, users, and market landscape.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Wireframe</h3>
+                    <p>Creating the structural foundation for intuitive user experiences.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Design & Iterate</h3>
+                    <p>Crafting beautiful interfaces and refining through feedback.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Developer Handoff</h3>
+                    <p>Comprehensive documentation for seamless implementation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>Don't take my word for it - here's what my clients say</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Dzul is a rare gem on Upwork. We hired 3 Figma designers and he doubled their output while providing higher quality work. He makes suggestions for improvements and doesn't need micromanagement. A true professional."</p>
+                <p class="testimonial-author">Jackson L Edwards</p>
+                <p class="testimonial-role">CEO of Medicare NationsWide</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"My experience with Dzul has been truly positive. He consistently provided creative and practical ideas that enhanced both design and business direction. His professionalism and strategic insight were invaluable."</p>
+                <p class="testimonial-author">Sepideh Zoey</p>
+                <p class="testimonial-role">CEO Sharehub Ltd</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Ready to Transform Your Product Vision?</h2>
+            <p>Let's discuss your product goals, challenges, and how my expertise can help you achieve success.</p>
+            <a href="#" class="contact-cta">Book a Free Consultation</a>
+            <p class="post-note">P.S. Currently available for project-based work and retained partnerships</p>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Muhammad Dzulfiqor - UI/UX Design Partner</p>
+        </div>
+    </footer>
+</body>
+</html>
